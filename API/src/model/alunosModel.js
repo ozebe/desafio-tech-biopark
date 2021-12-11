@@ -26,7 +26,11 @@ exports.saveAluno = function(aluno){
 }
 
 exports.updateAluno = function(id, aluno){
-    return database.query('update desafiotech.aluno set nome = $1, cpf = $2, dataNascimento = $3, updatedAt = current_timestamp where id = $4 returning *', [aluno.nome, aluno.cpf, aluno.dataNascimento, id]);
+        //tenta atualizar o aluno, caso ocorra um erro, devolve o erro na solicitação, para ser tratado.
+        const query =  database.query('update desafiotech.aluno set nome = $1, cpf = $2, dataNascimento = $3, updatedAt = current_timestamp where id = $4 returning *', [aluno.nome, aluno.cpf, aluno.dataNascimento, id]).catch(e => {
+            return(e);
+        });
+        return query;
 }
 
 exports.deleteAluno = function(id){
