@@ -7,8 +7,10 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
 //importação das rotas.
-const usersRouter = require("./routes/usersRoute");
 const loginRouter = require("./routes/loginRoute");
+const usersRouter = require("./routes/usersRoute");
+const alunosRouter = require("./routes/alunosRoute");
+
 
 
 //função middleware que verifica se o usuário esta logado
@@ -78,6 +80,7 @@ require("./auth")(passport);
 //rotas usadas como middleware
 app.use("/login", loginRouter); //deixa o login como rota sem auth por motivos óbvios
 app.use("/", authenticationMiddleware, usersRouter);
+app.use("/", authenticationMiddleware, alunosRouter);
 
 //exporta o módulo
 module.exports = app;
