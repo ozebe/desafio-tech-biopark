@@ -28,7 +28,7 @@ router.post('/', (req, res, next) => {
 //rota GET para realizar o logout do usuário.
 router.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/');
+    res.json({ message: "Logout realizado"});
 })
 
 module.exports = router;
