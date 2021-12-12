@@ -1,7 +1,7 @@
 const database = require('../config/database');
 
 exports.getAlunos = function(){
-    return database.query("select nome, cpf, dataNascimento from desafiotech.aluno");
+    return database.query("select id, nome, cpf, dataNascimento from desafiotech.aluno");
 }
 
 exports.getAlunoById = function(id){
