@@ -69,7 +69,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     proxy: true,
-    cookie: { maxAge: 30 * 60 * 1000, sameSite: "none" }, //define a duração do cookie de autenticação para 30 minutos.
+    cookie: { maxAge: 30 * 60 * 1000, secure: true, sameSite: "none" }, //define a duração do cookie de autenticação para 30 minutos.
   })
 );
 
