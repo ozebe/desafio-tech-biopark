@@ -39,7 +39,7 @@ app.use(express.json({ type: "application/vnd.api+json" }));
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    `http://${process.env.FSERVER}:${process.env.FPORT}` //só deixa um ip especifico para origem
+    `https://${process.env.FSERVER}` //só deixa um ip especifico para origem
   ); 
   res.header("Access-Control-Allow-Headers", [
     "Content-Type",
@@ -52,7 +52,7 @@ app.use((req, res, next) => {
   app.use(
     cors({
       credentials: true,
-      origin: `http://${process.env.FSERVER}:${process.env.FPORT}`,
+      origin: `https://${process.env.FSERVER}`,
       exposedHeaders: ['set-cookie']
     })
   );
