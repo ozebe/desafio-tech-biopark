@@ -3,6 +3,7 @@
 
 ### By Wesley Ozebe
 
+#### Deploy realizado em: https://desafio-tech-biopark-frontend.herokuapp.com/
  
  #### Configuração do ambiente
 
