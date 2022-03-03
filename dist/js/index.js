@@ -5,7 +5,7 @@ var PORT = '8080';
 
 async function verificaLogin(){
     try{
-        const login = await fetch(`https://${SERVER}:${PORT}/login`, {method: 'GET', mode: 'cors', 
+        const login = await fetch(`https://${SERVER}/login`, {method: 'GET', mode: 'cors', 
         headers: {"Content-Type": "application/json"}, credentials: 'include'});
     
         const mensagem = await login.json();
