@@ -16,7 +16,7 @@ async function login(evt){
     try{
         var dados = JSON.stringify({username: user, password: pwd});
 
-        const loginPOST = await fetch(`http://${SERVER}:${PORT}/login`, {method: 'POST', credentials: 'include', body: dados, mode: 'cors', 
+        const loginPOST = await fetch(`http://${SERVER}/login`, {method: 'POST', credentials: 'include', body: dados, mode: 'cors', 
         headers: {"Content-Type": "application/json"}});
          
         const mensagem = await loginPOST.json();
