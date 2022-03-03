@@ -68,6 +68,7 @@ app.use(
     secret: process.env.AUTH_SECRET, //utilizar o AUTH_SECRET de ENV para configurar o secret do session
     resave: true,
     saveUninitialized: false,
+    proxy: true,
     cookie: { maxAge: 30 * 60 * 1000, sameSite: "none" }, //define a duração do cookie de autenticação para 30 minutos.
   })
 );
