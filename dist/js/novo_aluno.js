@@ -5,7 +5,7 @@ var PORT = '8080';
 
 async function verificaLogin(){
     try{
-        const login = await fetch(`http://${SERVER}/login`, {method: 'GET', mode: 'cors', 
+        const login = await fetch(`https://${SERVER}/login`, {method: 'GET', mode: 'cors', 
         headers: {"Content-Type": "application/json"}, credentials: 'include'});
     
         const mensagem = await login.json();
@@ -30,7 +30,7 @@ async function salvaAluno(){
     }else{
         var dados = JSON.stringify({nome: nome, cpf: cpf, dataNascimento: dataNascimento});
 
-        const alunoPOST = await fetch(`http://${SERVER}:${PORT}/alunos`, {method: 'POST', credentials: 'include', body: dados, mode: 'cors', headers: {"Content-Type": "application/json"}});
+        const alunoPOST = await fetch(`https://${SERVER}/alunos`, {method: 'POST', credentials: 'include', body: dados, mode: 'cors', headers: {"Content-Type": "application/json"}});
         
         const response = await alunoPOST.json();
         
