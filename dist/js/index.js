@@ -138,6 +138,6 @@ window.salvaAlunoEditado = async function(id){
 
 //assim que carregar...
 window.onload = function() {
-    verificaLogin();
+    //verificaLogin();
     carrregaDadosTabelaAlunos();
   };
