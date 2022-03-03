@@ -42,7 +42,7 @@ function addRowToTableAlunos(id, nome, cpf, datanascimento){
 async function carrregaDadosTabelaAlunos(){
     document.querySelector('.table-alunos-body').innerHTML = "";
     try {
-        const response = await fetch(`http://${SERVER}:${PORT}/alunos`, {method: 'GET', mode: 'cors', 
+        const response = await fetch(`http://${SERVER}/alunos`, {method: 'GET', mode: 'cors', 
         headers: {"Content-Type": "application/json"}, credentials: 'include'});
         
         const data = await response.json();
@@ -60,7 +60,7 @@ window.excluiAluno = async function(id){
     if (window.confirm("Deseja realmente excluir o registro selecionado ?")) {
         console.log(id);
 
-        const response = await fetch(`http://${SERVER}:${PORT}/alunos/${id}`, {method: 'DELETE', mode: 'cors', 
+        const response = await fetch(`http://${SERVER}/alunos/${id}`, {method: 'DELETE', mode: 'cors', 
         headers: {"Content-Type": "application/json"}, credentials: 'include'});
         
         const data = await response.json();
@@ -92,7 +92,7 @@ window.editaAluno = async function(id){
     alertPlaceholder.innerHTML = ""; //apaga o anterior antes de colocar outro
     alertPlaceholder.append(wrapper);
 
-    const response = await fetch(`http://${SERVER}:${PORT}/alunos/${id}`, {method: 'GET', mode: 'cors', 
+    const response = await fetch(`http://${SERVER}/alunos/${id}`, {method: 'GET', mode: 'cors', 
     headers: {"Content-Type": "application/json"}, credentials: 'include'});
 
     const aluno = await response.json();
@@ -112,7 +112,7 @@ window.salvaAlunoEditado = async function(id){
     }else{
         var novosDados = JSON.stringify({nome: nome, cpf: cpf, dataNascimento: dataNascimento});
     
-        const alunoPUT = await fetch(`http://${SERVER}:${PORT}/alunos/${id}`, {method: 'PUT', credentials: 'include', body: novosDados, mode: 'cors', headers: {"Content-Type": "application/json"}});
+        const alunoPUT = await fetch(`http://${SERVER}/alunos/${id}`, {method: 'PUT', credentials: 'include', body: novosDados, mode: 'cors', headers: {"Content-Type": "application/json"}});
             
         const response = await alunoPUT.json();
         
